@@ -1,0 +1,25 @@
+<div class="grid-container">
+  <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50" class="example-viewport">
+  <mat-grid-list cols="5" rowHeight="140px">
+    <mat-grid-tile *cdkVirtualFor="let card of films" [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Card Content Here</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  </cdk-virtual-scroll-viewport>
+</div>

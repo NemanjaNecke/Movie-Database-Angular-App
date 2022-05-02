@@ -1,0 +1,36 @@
+<div class="grid-container">
+ 
+  <mat-grid-list cols="1" rowHeight="350px">
+     <ng-container *ngFor="let item of items; let i = index">
+       <mat-grid-tile *ngIf="i == currentIndex"  [colspan]="1" [rowspan]="2" @fade> 
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+           <h1> {{item.title}}</h1>
+           <div class="rating">            
+             <span>Released: {{item.release_date | date: 'yyyy'}}</span>
+             <span ><mat-icon>star</mat-icon></span>
+              <span> {{item.vote_average}} / 10</span>
+              <span>Votes: {{item.vote_count}}</span>
+  
+           </div>
+           
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>{{ item.overview}}</div>
+          <img mat-card-image src="{{imgPath+item.backdrop_path}}">
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+     </ng-container>
+    
+  </mat-grid-list>
+</div>
