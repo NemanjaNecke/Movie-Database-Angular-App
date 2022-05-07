@@ -25,6 +25,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MoviesCategoriesComponent } from './movies-categories/movies-categories.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -55,7 +56,8 @@ import { MoviesCategoriesComponent } from './movies-categories/movies-categories
     MatPaginatorModule,
     MatTableModule,
     MatSortModule,
-    ScrollingModule
+    ScrollingModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,5 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
-
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -17,16 +15,33 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   ]
 })
 export class ItemComponent implements OnInit {
-  
+  innerWidth!: any;
+  row!:any;
+
+  @HostListener('window:resize', ['$event'])
+onResize() {
+  this.innerWidth = window.innerWidth;
+}
   imgPath = 'http://image.tmdb.org/t/p/w1280/';
   @Input() items: any[] = [] ;
   currentIndex: number = 0;
 
   constructor() {}
 
+  getRowHeight(){
+    if(this.innerWidth > 600) {
+      this.row = '561px';
+    } else {
+      this.row = '900px';
+    }
+  }
+
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
     setInterval(() => {
       this.currentIndex = ++this.currentIndex % this.items.length;
-    }, 4000);
+    }, 4599);
+    this.getRowHeight();
   }
+
 }

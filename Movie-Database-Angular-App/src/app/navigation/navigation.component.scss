@@ -3,7 +3,24 @@
 }
 
 .sidenav {
-  width: 12%;
+  width: 30%;
+  background-color: black;
+  mat-toolbar {
+    color: red;
+    text-align: center;
+  }
+  a { 
+    color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    font-size: x-large;
+    font-weight: bold;
+    padding: 10%;
+    border-bottom: 3px black solid;
+  }
 }
 
 .sidenav .mat-toolbar {
@@ -24,9 +41,23 @@
 .main-menu{
   a {
   color: rgba(255, 255, 255, 1);
+  }
 }
-}
+
 
 mat-sidenav-content {
   background-color: black;
+  &::-webkit-scrollbar {
+    width: 7px;
+    background-color: black;
+  }
+    &::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 10%;
+    width: 30px;
+  }
  }
+
+ .mat-toolbar-row, .mat-toolbar-single-row {
+  justify-content: center;
+}

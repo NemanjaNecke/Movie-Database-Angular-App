@@ -9,5 +9,8 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class MoviesCategoriesComponent {
   @Input() films: any[] = [];
+  imgPath = 'http://image.tmdb.org/t/p/w185/';
+
+
   constructor(private breakpointObserver: BreakpointObserver) {}
 }

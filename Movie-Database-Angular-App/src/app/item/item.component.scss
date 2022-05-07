@@ -3,6 +3,7 @@
   background-color: black;
 }
 
+
 .dashboard-card {
   position: absolute;
   top: 1px;
@@ -37,6 +38,40 @@
     width: 53%;
     text-align: left;
     left: 5%;
+  }
+}
+
+@media screen and (max-width: 600px){
+
+  .dashboard-card-content {
+    div {
+      position: absolute;
+      background-color: rgba(20, 20, 20, 0.3);
+      color: white;
+      top: 55%;
+      width: 80%;
+      text-align: center;
+      left: 5%;
+      font-size: 1.5rem;
+    }
+  }
+  .mat-card-title {
+    .rating {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  }
+  .mat-card-header {
+    display: block;
+    position: absolute;
+    top: 35%;
+    left: 3.5%;
+    right: 0px;
+   .mat-card-title {
+     text-align: left;
+   }
   }
 }
 
