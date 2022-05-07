@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { switchMap } from 'rxjs';
+import { MovieDto } from './movie';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class MoviesService {
   constructor(private http: HttpClient) { }
 
   getUpcMovies() {
-    return this.http.get(this.upcMovies);
+    return this.http.get<MovieDto>(this.upcMovies);
   }
 
   getPopMovies() {

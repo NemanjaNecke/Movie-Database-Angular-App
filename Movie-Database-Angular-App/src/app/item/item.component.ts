@@ -1,6 +1,6 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
-
+import { Movie } from '../movies/movie';
 
 @Component({
   selector: 'app-item',
@@ -20,10 +20,11 @@ export class ItemComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
 onResize() {
+  //for testing responsivnes
   this.innerWidth = window.innerWidth;
-}
+} 
   imgPath = 'http://image.tmdb.org/t/p/w1280/';
-  @Input() items: any[] = [] ;
+  @Input() items: Movie[] = [] ;
   currentIndex: number = 0;
 
   constructor() {}
