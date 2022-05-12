@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { switchMap } from 'rxjs';
 import { MovieDto } from './movie';
 
@@ -7,28 +7,20 @@ import { MovieDto } from './movie';
   providedIn: 'root'
 })
 export class MoviesService {
+  baseUrl = 'https://api.themoviedb.org/3/';
+  apiKey = '?api_key=71c246bf9a9a4d673dd3e68aabe7dc4d';
   upcMovies = 'https://api.themoviedb.org/3/movie/upcoming?api_key=71c246bf9a9a4d673dd3e68aabe7dc4d';
-  popMovies = 'https://api.themoviedb.org/3/movie/popular?api_key=71c246bf9a9a4d673dd3e68aabe7dc4d&language=en-US&page=1';
-  topRated = 'https://api.themoviedb.org/3/movie/top_rated?api_key=71c246bf9a9a4d673dd3e68aabe7dc4d&language=en-US&page=1';
-  latestMovies = 'https://api.themoviedb.org/3/movie/now_playing?api_key=71c246bf9a9a4d673dd3e68aabe7dc4d&language=en-US&page=1';
+  popMovies = 'https://api.themoviedb.org/3/movie/popular?api_key=71c246bf9a9a4d673dd3e68aabe7dc4d&language=en-US';
+  topRated = 'https://api.themoviedb.org/3/movie/top_rated?api_key=71c246bf9a9a4d673dd3e68aabe7dc4d&language=en-US';
+  latestMovies = 'https://api.themoviedb.org/3/movie/now_playing?api_key=71c246bf9a9a4d673dd3e68aabe7dc4d&language=en-US';
   img = 'https://api.themoviedb.org/3/configuration?api_key=71c246bf9a9a4d673dd3e68aabe7dc4d';
-
-
+  tvShowsPopular = 'https://api.themoviedb.org/3/tv/popular?api_key=71c246bf9a9a4d673dd3e68aabe7dc4d&language=en-US'
+  
   constructor(private http: HttpClient) { }
 
-  getUpcMovies() {
-    return this.http.get<MovieDto>(this.upcMovies);
+  getUpcMovies(page:number,type:string,category: string) {
+   
+    return this.http.get<MovieDto>(this.baseUrl+type+'/'+category+this.apiKey+'&page='+page);
   }
 
-  getPopMovies() {
-    return this.http.get(this.popMovies);
-  }
-
-  getTopMovies() {
-    return this.http.get(this.topRated);
-  }
-
-  getLatestMovies() {
-    return this.http.get(this.latestMovies);
-  }
 }

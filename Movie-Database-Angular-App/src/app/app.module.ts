@@ -19,13 +19,16 @@ import { MatCardModule } from '@angular/material/card';
 import { ItemComponent } from './item/item.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
-
-import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatTabsModule} from '@angular/material/tabs';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MoviesCategoriesComponent } from './movies-categories/movies-categories.component';
 import { CommonModule } from '@angular/common';
+import { CatalogueComponent } from './catalogue/catalogue.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -37,27 +40,32 @@ import { CommonModule } from '@angular/common';
     HomeComponent,
     MoviesComponent,
     ItemComponent,
-    MoviesCategoriesComponent
+    MoviesCategoriesComponent,
+    CatalogueComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
+    HttpClientModule,
+    ScrollingModule,
+    CommonModule,
+    //material
+    MatDividerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatTableModule,
+    MatSortModule,
+    MatTabsModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpClientModule,
-    MatCardModule,
-    MatGridListModule,
-    MatMenuModule,
-    MatPaginatorModule,
-    MatTableModule,
-    MatSortModule,
-    ScrollingModule,
-    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

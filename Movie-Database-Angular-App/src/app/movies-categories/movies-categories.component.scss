@@ -34,7 +34,9 @@
   width: 30px;
 }
 
-
+.mat-list::-webkit-scrollbar-thumb:hover{
+  cursor: pointer;
+}
 
 .mat-list-base .mat-list-item.first-item  img {
     box-shadow: none;

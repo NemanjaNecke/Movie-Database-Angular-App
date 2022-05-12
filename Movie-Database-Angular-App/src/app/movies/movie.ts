@@ -22,3 +22,4 @@ export interface MovieDto {
   total_results: number,
   total_pages: number;
 }
+

@@ -1,7 +1,10 @@
-<app-item [items]="movies"></app-item>
-<h1>Upcoming</h1>
-<app-movies-categories [films]="movies"></app-movies-categories>
-<h1>Top Rated Movies</h1>
-<app-movies-categories [films]="topRatedMovies"></app-movies-categories>
-<h1>In Theaters</h1>
-<app-movies-categories [films]="latestMovies"></app-movies-categories>
+<app-catalogue 
+[currPage]="currentPage"
+[totPages]="totalPages"
+[cards]="popular" 
+[topRated]="topRatedMovies"
+[upcoming]="latestMovies"
+(goTo)="getNextpage($event)"
+(previous)="getPreviousPage($event)"
+(currPageChange)="goToPage($event)"
+></app-catalogue>
