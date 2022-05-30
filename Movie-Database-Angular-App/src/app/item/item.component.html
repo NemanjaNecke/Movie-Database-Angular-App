@@ -5,8 +5,8 @@
        <mat-grid-tile *ngIf="i == currentIndex"  [colspan]="1" [rowspan]="1" @fade> 
       <mat-card class="dashboard-card">
         <mat-card-header>
-          <mat-card-title>
-           <h1> {{item.title}}</h1>
+          <mat-card-title *ngIf="!isBanner">
+            <a [routerLink]="'/movie/ '+ item.id"> <h1> {{item.title}}</h1></a>
            <div class="rating">            
              <span>Released: {{item.release_date | date: 'yyyy'}}</span>
              <span ><mat-icon>star</mat-icon></span>
@@ -14,17 +14,11 @@
               <span>Votes: {{item.vote_count}}</span>
   
            </div>
-           
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-            </mat-menu>
+            
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>{{ item.overview}}</div>
+          <div *ngIf="!isBanner">{{ item.overview}}</div>
           <img mat-card-image src="{{imgPath+item.backdrop_path}}">
         </mat-card-content>
       </mat-card>

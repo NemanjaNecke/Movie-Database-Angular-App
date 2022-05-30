@@ -1,30 +1,24 @@
-
-import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
-
-import { Movie, MovieDto } from '../movies/movie';
- 
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Movie } from '../../movie';
 
 @Component({
-  selector: 'app-catalogue',
-  templateUrl: './catalogue.component.html',
-  styleUrls: ['./catalogue.component.scss']
+  selector: 'app-tab1-view',
+  templateUrl: './tab1-view.component.html',
+  styleUrls: ['./tab1-view.component.scss']
 })
-export class CatalogueComponent {
+export class Tab1ViewComponent implements OnInit {
   imgPath = 'http://image.tmdb.org/t/p/w780/';
   values!: number;
   @Input() cards: Movie[] = [];
-  @Input() topRated: Movie[] =[];
-  @Input() upcoming: Movie[] = [];
-  @Input() currPage!: number;
+ @Input() currPage!: number;
   @Input() totPages!: number;
   @Output() goTo: EventEmitter<string> = new EventEmitter();
   @Output() currPageChange: EventEmitter<any> = new EventEmitter();
   @Output() previous = new EventEmitter<string>();
-  
-  constructor() {}
-  
+  constructor() { }
 
+  ngOnInit(): void {
+  } 
   goToPage(category: string) {
     this.goTo.emit(category);
   }

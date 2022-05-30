@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Optional } from '@angular/core';
-import { switchMap } from 'rxjs';
-import { MovieDto } from './movie';
+import { Movie, MovieDto, MovieVideoDto, MovieImages, MovieCredits, GenreDto } from './movie';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +22,28 @@ export class MoviesService {
     return this.http.get<MovieDto>(this.baseUrl+type+'/'+category+this.apiKey+'&page='+page);
   }
 
+  geMoviesVideos(id: string) {
+   
+    return this.http.get<MovieVideoDto>(this.baseUrl+'movie/'+id+'/videos'+this.apiKey);
+  }
+
+  geMoviesGenres() {
+    return this.http.get<GenreDto>(this.baseUrl+'genre/movie/list'+this.apiKey);
+  }
+
+ getMoviesByGenre(id:string) {
+   return this.http.get<MovieDto>(this.baseUrl + 'discover/movie?with_genres='+id+'&api_key=71c246bf9a9a4d673dd3e68aabe7dc4d')
+ }
+
+  getMovie(id: string){
+    return this.http.get<Movie>(this.baseUrl+'movie/'+id+this.apiKey)
+  }
+
+  getMovieImages(id: string) {
+    return this.http.get<MovieImages>(this.baseUrl+'movie/'+id+'/images'+this.apiKey)
+  }
+
+  getMovieCredits(id:string) {
+    return this.http.get<MovieCredits>(this.baseUrl+'movie/' + id+ '/credits' +this.apiKey)
+  }
 }

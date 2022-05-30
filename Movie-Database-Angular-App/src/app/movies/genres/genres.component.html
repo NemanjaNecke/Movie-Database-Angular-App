@@ -1,0 +1,9 @@
+<div class="container">
+    <mat-chip-list aria-label="Genres" class="genres">
+    <mat-chip *ngFor="let item of genres">
+        <a [routerLink]="'/movies/genres/' + item.id">{{item.name}}</a>
+    </mat-chip>
+ 
+</mat-chip-list>
+
+</div>

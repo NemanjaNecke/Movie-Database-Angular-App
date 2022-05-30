@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+
 
 @Component({
   selector: 'app-movies-categories',
@@ -12,5 +11,5 @@ export class MoviesCategoriesComponent {
   imgPath = 'http://image.tmdb.org/t/p/w185/';
 
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor() {}
 }

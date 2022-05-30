@@ -17,9 +17,9 @@ import { Movie } from '../movies/movie';
 export class ItemComponent implements OnInit {
   innerWidth!: any;
   row!:any;
-
+  @Input() isBanner: boolean = false;
   @HostListener('window:resize', ['$event'])
-onResize() {
+  onResize() {
   //for testing responsivnes
   this.innerWidth = window.innerWidth;
 } 
@@ -33,15 +33,18 @@ onResize() {
     if(this.innerWidth > 600) {
       this.row = '561px';
     } else {
-      this.row = '900px';
+      this.row = '250px';
     }
   }
 
   ngOnInit() {
     this.innerWidth = window.innerWidth;
-    setInterval(() => {
+    if(!this.isBanner){
+       setInterval(() => {
       this.currentIndex = ++this.currentIndex % this.items.length;
     }, 4599);
+    }
+   
     this.getRowHeight();
   }
 

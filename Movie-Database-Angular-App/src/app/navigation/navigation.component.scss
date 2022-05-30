@@ -50,7 +50,7 @@ mat-sidenav-content {
   background-color: black;
   &::-webkit-scrollbar {
     width: 7px;
-    background-color: black;
+    background-color: transparent;
   }
     &::-webkit-scrollbar-thumb {
     background-color: red;

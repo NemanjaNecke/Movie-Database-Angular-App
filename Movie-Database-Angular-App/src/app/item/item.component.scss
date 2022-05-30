@@ -20,6 +20,13 @@
  .mat-card-title {
    text-align: left;
  }
+ a {
+  color: white;
+  text-decoration:wavy;
+  &:hover{
+    color: red;
+  }
+ }
 }
 
 .more-button {
@@ -48,7 +55,7 @@
       position: absolute;
       background-color: rgba(20, 20, 20, 0.3);
       color: white;
-      top: 55%;
+      top: 40%;
       width: 80%;
       text-align: center;
       left: 5%;
@@ -66,7 +73,7 @@
   .mat-card-header {
     display: block;
     position: absolute;
-    top: 35%;
+    top: 28%;
     left: 3.5%;
     right: 0px;
    .mat-card-title {

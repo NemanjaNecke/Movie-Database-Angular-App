@@ -1,0 +1,9 @@
+<app-tab-view
+[currPage]="currentPage"
+[totPages]="totalPages"
+[upcoming]="latestMovies"
+(goTo)="getNextpage($event)"
+(previous)="getPreviousPage($event)"
+(currPageChange)="goToPage($event)">
+
+</app-tab-view>

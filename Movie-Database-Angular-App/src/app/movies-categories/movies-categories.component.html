@@ -5,7 +5,7 @@
    
     <mat-list-item *ngFor="let card of films; let first = first" [class.first-item]="first">
          
-          <img  src="{{imgPath+card.poster_path}}">
+          <a [routerLink]="'/movie/ '+ card.id"><img  src="{{imgPath+card.poster_path}}"></a>
 
     </mat-list-item> 
 

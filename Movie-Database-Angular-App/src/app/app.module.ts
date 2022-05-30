@@ -1,4 +1,9 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { GenresModule } from './movies/genres/genres.module';
+import { MoviesGenresModule } from './movies/movies-genres/movies-genres.module';
+import { MoviesModule } from './movies/movies.module';
+import { Tab1Module } from './movies/tab2/tab1.module';
+import { CatalogueModule } from './movies/catalogue/catalogue.module';
+import {  HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,7 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { MoviesComponent } from './movies/movies.component';
+
 import { MatCardModule } from '@angular/material/card';
 import { ItemComponent } from './item/item.component';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -25,10 +30,22 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MoviesCategoriesComponent } from './movies-categories/movies-categories.component';
 import { CommonModule } from '@angular/common';
-import { CatalogueComponent } from './catalogue/catalogue.component';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatChipsModule} from '@angular/material/chips';
+import { TabModule } from './movies/tab/tab.module';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { VideoComponent } from './movie-detail/video/video.component';
+import { SafePipe } from './safe.pipe';
+import { ImageGalleryComponent } from './movie-detail/image-gallery/image-gallery.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogDataComponent } from './movie-detail/image-gallery/dialog-data/dialog-data.component';
+import { CreditsComponent } from './movie-detail/credits/credits.component';
+
+
+
 
 
 
@@ -39,10 +56,14 @@ import {MatDividerModule} from '@angular/material/divider';
     NavigationComponent,
     FooterComponent,
     HomeComponent,
-    MoviesComponent,
     ItemComponent,
     MoviesCategoriesComponent,
-    CatalogueComponent
+    MovieDetailComponent,
+    VideoComponent,
+    SafePipe,
+    ImageGalleryComponent,
+    DialogDataComponent,
+    CreditsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +73,15 @@ import {MatDividerModule} from '@angular/material/divider';
     HttpClientModule,
     ScrollingModule,
     CommonModule,
+    CatalogueModule,
+    Tab1Module,
+    TabModule,
+    MoviesModule,
+    MoviesGenresModule,
+    GenresModule,
     //material
+    MatChipsModule,
+    MatDialogModule,
     MatDividerModule,
     MatInputModule,
     MatFormFieldModule,
@@ -67,8 +96,10 @@ import {MatDividerModule} from '@angular/material/divider';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogDataComponent]
 })
 export class AppModule { }

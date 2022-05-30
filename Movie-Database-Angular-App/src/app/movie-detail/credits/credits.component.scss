@@ -1,0 +1,40 @@
+
+  .mat-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
+    height: 23rem;
+    align-items: center;
+    p {
+        color: white;
+    }
+  }
+  .actor {
+      position: relative;
+      margin: 3% 3%;
+      padding: 2% 2%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 10rem;
+  }
+    .mat-list::-webkit-scrollbar {
+    width: auto;
+    height: 10px;
+    background-color: black;
+  }
+    .mat-list::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 10%;
+    width: 30px;
+  }
+  
+  .mat-list::-webkit-scrollbar-thumb:hover{
+    cursor: pointer;
+  }
+  
+  
+      
