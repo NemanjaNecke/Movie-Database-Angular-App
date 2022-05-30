@@ -1,7 +1,7 @@
 <div class="grid-container">
     <mat-toolbar class="pagination" id="top">
     <mat-toolbar-row>
-      <a mat-icon-button (click)="previousPage('top_rated')" *ngIf="currPage>1">Previous<mat-icon>arrow_back_ios</mat-icon></a>
+      <a mat-icon-button (click)="previousPage()" *ngIf="currPage>1"><mat-icon>arrow_back_ios</mat-icon>Previous</a>
     <mat-form-field appearance="fill">
         <mat-label>Enter page number:</mat-label>
         <input 
@@ -12,9 +12,9 @@
         [value]="input2.value" 
         (keyup)="onKey(input2.value)">
       </mat-form-field>
-      <a mat-icon-button (click)="getValue(values, 'top_rated')"> 
+      <a mat-icon-button (click)="getValue(values)"> 
         Go to page<mat-icon>arrow_forward_ios</mat-icon> </a> 
-        <a mat-icon-button (click)="goToPage('top_rated')">Next<mat-icon>arrow_forward_ios</mat-icon></a> 
+        <a mat-icon-button (click)="goToPage()">Next<mat-icon>arrow_forward_ios</mat-icon></a> 
     </mat-toolbar-row>
     <mat-toolbar-row>
       <p>Current page: {{currPage}} | Total pages: {{totPages}}</p>

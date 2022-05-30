@@ -35,6 +35,10 @@ export class MoviesService {
    return this.http.get<MovieDto>(this.baseUrl + 'discover/movie?with_genres='+id+'&api_key=71c246bf9a9a4d673dd3e68aabe7dc4d')
  }
 
+ getGenreNextPage(page: number, id:string) {
+   return this.http.get<MovieDto>(this.baseUrl+'discover/movie?with_genres='+id+'&api_key=71c246bf9a9a4d673dd3e68aabe7dc4d'+'&page='+page)
+ }
+
   getMovie(id: string){
     return this.http.get<Movie>(this.baseUrl+'movie/'+id+this.apiKey)
   }

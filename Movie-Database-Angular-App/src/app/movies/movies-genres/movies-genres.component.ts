@@ -13,7 +13,7 @@ export class MoviesGenresComponent implements OnInit {
 
 
   genres: Movie[] = [];
-
+  genreId: string = '';
   currentPage = 1;
   totalPages = 0;
   constructor(private moviesService: MoviesService, private route: ActivatedRoute) { }
@@ -22,14 +22,14 @@ export class MoviesGenresComponent implements OnInit {
   ngOnInit(): void {
   this.route.params.pipe(take(1)).subscribe((genreId) => {
     this.getMoviesByGenre(genreId['genreId']);
+    this.genreId = genreId['genreId']
   })
-  
-
   }
-  getNextpage(category:string){
+
+  getNextpage(){
     this.currentPage++;
 
-    this.moviesService.getUpcMovies(this.currentPage, 'movie',category).subscribe((response: MovieDto) => {
+    this.moviesService.getGenreNextPage(this.currentPage, this.genreId).subscribe((response: MovieDto) => {
   
         this.genres = [];
       this.genres = [...response.results]
@@ -37,10 +37,10 @@ export class MoviesGenresComponent implements OnInit {
    });
   }
   
-  getPreviousPage(category: string) {
+  getPreviousPage() {
     this.currentPage--;
-    console.log(this.currentPage);
-    this.moviesService. getUpcMovies(this.currentPage, 'movie',category).subscribe((response: MovieDto) => {
+  
+    this.moviesService. getGenreNextPage(this.currentPage, this.genreId).subscribe((response: MovieDto) => {
 
       this.genres = [];
       this.genres = [...response.results]
@@ -48,13 +48,11 @@ export class MoviesGenresComponent implements OnInit {
    });
 }
 
-goToPage(event: any){
-  let page = event[0];
-  let category = event[1];
-
-  this.moviesService. getUpcMovies(page, 'movie',category).subscribe((response: MovieDto) => {
+goToPage(event: number){
   
-      this.currentPage = page;
+  this.moviesService. getGenreNextPage(event, this.genreId).subscribe((response: MovieDto) => {
+  
+      this.currentPage = event;
       this.genres = [];
     this.genres = [...response.results]
  });
@@ -62,7 +60,7 @@ goToPage(event: any){
 getMoviesByGenre(id: string) {
   this.moviesService.getMoviesByGenre(id).subscribe((data) => {
     this.genres = data.results;
-    console.log(data.results)
+    this.totalPages = data.total_pages
   })
 }
 

@@ -17,4 +17,8 @@ export class GenresComponent implements OnInit {
     })
   }
 
+  pageLoad() {
+    setInterval(() => {window.location.reload()}, 500)
+  }
+
 }

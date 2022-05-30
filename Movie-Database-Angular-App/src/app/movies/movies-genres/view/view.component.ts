@@ -23,12 +23,12 @@ export class ViewComponent implements OnInit {
   }
 
   
-  goToPage(category: string) {
-    this.goTo.emit(category);
+  goToPage() {
+    this.goTo.emit();
   }
 
-  previousPage(category: string) {
-    this.previous.emit(category);
+  previousPage() {
+    this.previous.emit();
 
   }
 
@@ -36,9 +36,9 @@ export class ViewComponent implements OnInit {
     window.location.hash = '';
     window.location.hash = section;
 }
-getValue(event: number, category: string) {
-  let x = event;
-  this.currPageChange.emit([x,category]);
+getValue(event: number) {
+  
+  this.currPageChange.emit(event);
 }
 
 onKey(value: string){
