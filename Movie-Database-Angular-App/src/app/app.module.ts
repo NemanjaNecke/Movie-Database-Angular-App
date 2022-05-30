@@ -1,3 +1,4 @@
+import { SearchModule } from './movies/search/search.module';
 import { GenresModule } from './movies/genres/genres.module';
 import { MoviesGenresModule } from './movies/movies-genres/movies-genres.module';
 import { MoviesModule } from './movies/movies.module';
@@ -79,6 +80,7 @@ import { CreditsComponent } from './movie-detail/credits/credits.component';
     MoviesModule,
     MoviesGenresModule,
     GenresModule,
+    SearchModule,
     //material
     MatChipsModule,
     MatDialogModule,

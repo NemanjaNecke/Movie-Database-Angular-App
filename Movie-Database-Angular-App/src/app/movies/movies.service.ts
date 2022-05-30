@@ -50,4 +50,8 @@ export class MoviesService {
   getMovieCredits(id:string) {
     return this.http.get<MovieCredits>(this.baseUrl+'movie/' + id+ '/credits' +this.apiKey)
   }
+
+  getSearchMovies(search: string, page: number) {
+    return this.http.get<MovieDto>(this.baseUrl+'search/movie'+this.apiKey+'&language=en-US&query='+search+'&page='+page)
+  }
 }

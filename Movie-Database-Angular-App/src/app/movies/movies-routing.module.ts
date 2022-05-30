@@ -6,6 +6,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { Tab1Component } from './tab2/tab1.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {path: '', component: MoviesComponent, children: 
@@ -29,6 +30,11 @@ const routes: Routes = [
     path: 'genres/:genreId',
     component: MoviesGenresComponent
   },
+
+  {
+    path: 'search',
+    component: SearchComponent
+  }
 ]
   }
 ];

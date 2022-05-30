@@ -33,6 +33,11 @@ export class MoviesComponent  {
      title: 'Movies By Genres',
      content:``,
      route: '/movies/genres'
+   },
+   {
+     title: 'Search Movies',
+     content:``,
+     route: '/movies/search'
    }
   ] 
 }
