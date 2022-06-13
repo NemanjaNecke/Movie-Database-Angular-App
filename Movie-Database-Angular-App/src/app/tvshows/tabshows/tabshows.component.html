@@ -1,0 +1,9 @@
+<app-tabshowview
+[currPage]="currentPage"
+[totPages]="totalPages"
+[upcoming]="popularShows"
+(goTo)="getNextpage($event)"
+(previous)="getPreviousPage($event)"
+(currPageChange)="goToPage($event)">
+
+</app-tabshowview>

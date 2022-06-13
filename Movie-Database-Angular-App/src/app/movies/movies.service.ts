@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Optional } from '@angular/core';
 import { Movie, MovieDto, MovieVideoDto, MovieImages, MovieCredits, GenreDto } from './movie';
-
+import { TvShowDto } from '../tvshows/tvshow';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +20,10 @@ export class MoviesService {
   getUpcMovies(page:number,type:string,category: string) {
    
     return this.http.get<MovieDto>(this.baseUrl+type+'/'+category+this.apiKey+'&page='+page);
+  }
+  getUpcShows(page:number,type:string,category: string) {
+   
+    return this.http.get<TvShowDto>(this.baseUrl+type+'/'+category+this.apiKey+'&page='+page);
   }
 
   geMoviesVideos(id: string) {

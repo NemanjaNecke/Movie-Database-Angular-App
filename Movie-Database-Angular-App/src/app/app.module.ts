@@ -46,6 +46,15 @@ import { DialogDataComponent } from './movie-detail/image-gallery/dialog-data/di
 import { CreditsComponent } from './movie-detail/credits/credits.component';
 
 
+import { GenreshowsComponent } from './tvshows/genreshows/genreshows.component';
+import { TvshowsgenresComponent } from './tvshows/tvshowsgenres/tvshowsgenres.component';
+import { SearchgenresComponent } from './tvshows/searchgenres/searchgenres.component';
+import { CatalogueshowsComponent } from './catalogueshows/catalogueshows.component';
+import { Tab1showsModule } from './tvshows/tab1shows/tab1shows.module';
+
+
+
+
 
 
 
@@ -64,7 +73,12 @@ import { CreditsComponent } from './movie-detail/credits/credits.component';
     SafePipe,
     ImageGalleryComponent,
     DialogDataComponent,
-    CreditsComponent
+    CreditsComponent,
+    GenreshowsComponent,
+    TvshowsgenresComponent,
+    SearchgenresComponent,
+    CatalogueshowsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -81,6 +95,7 @@ import { CreditsComponent } from './movie-detail/credits/credits.component';
     MoviesGenresModule,
     GenresModule,
     SearchModule,
+    Tab1showsModule,
     //material
     MatChipsModule,
     MatDialogModule,

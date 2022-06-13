@@ -1,0 +1,9 @@
+<nav mat-tab-nav-bar class="tabNav" [tabPanel]="tabPanel">
+    <a mat-tab-link *ngFor="let tabItem of tvTabs; index as i" [routerLink]="tvTabs[i].route"
+    routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive"
+    >
+      {{tabItem.title}}
+    </a>
+</nav>
+<mat-tab-nav-panel #tabPanel><router-outlet></router-outlet></mat-tab-nav-panel>
