@@ -1,3 +1,5 @@
+import { TvshowsService } from './../tvshows.service';
+import { TvGenre } from './../tvshow';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenreshowsComponent implements OnInit {
 
-  constructor() { }
+  genres: TvGenre[] = [];
+  constructor(private shows: TvshowsService) { }
 
   ngOnInit(): void {
+    this.shows.getShowsGenres().subscribe((genreData) => {
+      this.genres = genreData.genres;
+    })
+  }
+
+  pageLoad() {
+    setInterval(() => {window.location.reload()}, 500)
   }
 
 }

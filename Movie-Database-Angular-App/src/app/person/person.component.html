@@ -1,0 +1,29 @@
+<div class="container" >
+    <div  class="column image-column"> 
+        <mat-card>
+           <img mat-card-image [src]="imgPath +person.profile_path" [alt]="person.name"> 
+        </mat-card>
+    </div>
+    <div class="column">
+        <h2>{{person.name}}</h2>
+        <h2>Overview</h2>
+        <p>{{person.biography}}</p>
+        <div class="stats">
+            <p class="label">Birth Date:</p>
+            <p class="value">{{ person.birthday | date: 'dd.MM.yyyy' }}</p>
+        </div>
+        <div class="stats">
+            <p class="label">Place of birth:</p>
+            <p class="value">{{ person.place_of_birth | uppercase }}</p>
+        </div>
+        <div class="stats">
+            <p class="label">Homepage:</p>
+            <p class="value">{{ person.homepage || null}}</p>
+        </div>
+       
+        <div class="stats">
+            <p class="label">Known for:</p>
+            <p class="value">{{ person.known_for_department }}</p>
+        </div>
+        </div>
+    </div>

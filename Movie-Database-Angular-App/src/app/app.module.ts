@@ -1,3 +1,7 @@
+import { MultiSearchService } from './search-results/multi-search.service';
+import { FormsModule } from '@angular/forms';
+import { TabshowviewModule } from './tvshows/tabshows/tabshowview/tabshowview.module';
+import { VideoShowsComponent } from './tvshows/details/video/video.component';
 import { SearchModule } from './movies/search/search.module';
 import { GenresModule } from './movies/genres/genres.module';
 import { MoviesGenresModule } from './movies/movies-genres/movies-genres.module';
@@ -41,7 +45,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { VideoComponent } from './movie-detail/video/video.component';
 import { SafePipe } from './safe.pipe';
 import { ImageGalleryComponent } from './movie-detail/image-gallery/image-gallery.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { DialogDataComponent } from './movie-detail/image-gallery/dialog-data/dialog-data.component';
 import { CreditsComponent } from './movie-detail/credits/credits.component';
 
@@ -51,6 +55,16 @@ import { TvshowsgenresComponent } from './tvshows/tvshowsgenres/tvshowsgenres.co
 import { SearchgenresComponent } from './tvshows/searchgenres/searchgenres.component';
 import { CatalogueshowsComponent } from './catalogueshows/catalogueshows.component';
 import { Tab1showsModule } from './tvshows/tab1shows/tab1shows.module';
+import { DetailsComponent } from './tvshows/details/details.component';
+import { ImageGaleryShowsComponent } from './tvshows/details/image-galery/image-galery.component';
+import { CreditsShowsComponent } from './tvshows/details/credits/credits.component';
+import { DialogComponent } from './tvshows/details/image-galery/dialog/dialog.component';
+import { ItemShowComponent } from './tvshows/details/item/item.component';
+import { GenreshowsviewComponent } from './tvshows/tvshowsgenres/genreshowsview/genreshowsview.component';
+import { SearchViewComponent } from './tvshows/searchgenres/search-view/search-view.component';
+import { ShowsviewComponent } from './catalogueshows/showsview/showsview.component';
+import { SearchdiagComponent } from './navigation/searchdiag/searchdiag.component';
+import { SearchResultsModule } from './search-results/search-results.module';
 
 
 
@@ -78,7 +92,16 @@ import { Tab1showsModule } from './tvshows/tab1shows/tab1shows.module';
     TvshowsgenresComponent,
     SearchgenresComponent,
     CatalogueshowsComponent,
-
+    DetailsComponent,
+    ImageGaleryShowsComponent,
+    CreditsShowsComponent,
+    VideoShowsComponent,
+    DialogComponent,
+    ItemShowComponent,
+    GenreshowsviewComponent,
+    SearchViewComponent,
+    ShowsviewComponent,
+    SearchdiagComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +119,7 @@ import { Tab1showsModule } from './tvshows/tab1shows/tab1shows.module';
     GenresModule,
     SearchModule,
     Tab1showsModule,
+    TabshowviewModule,
     //material
     MatChipsModule,
     MatDialogModule,
@@ -113,9 +137,29 @@ import { Tab1showsModule } from './tvshows/tab1shows/tab1shows.module';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-
+    FormsModule,
+    SearchResultsModule,
   ],
-  providers: [],
+  exports: [
+    ImageGaleryShowsComponent,
+    CreditsShowsComponent,
+    VideoShowsComponent,
+    DialogComponent,
+    ItemShowComponent,
+    GenreshowsviewComponent,
+    GenreshowsComponent,
+    TvshowsgenresComponent,
+    SearchgenresComponent,
+    CatalogueshowsComponent,
+    SearchViewComponent,
+    ShowsviewComponent
+  ],
+  providers: [{
+    provide: MatDialogRef,
+    useValue: {}
+  }, 
+MultiSearchService
+],
   bootstrap: [AppComponent],
   entryComponents: [DialogDataComponent]
 })

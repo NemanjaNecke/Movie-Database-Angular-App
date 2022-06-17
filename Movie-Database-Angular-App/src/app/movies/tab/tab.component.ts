@@ -17,6 +17,7 @@ export class TabComponent implements OnInit {
 
   ngOnInit(): void {
    this.moviesService.getUpcMovies(this.currentPage, 'movie','now_playing').subscribe((response: MovieDto) => {
+    this.totalPages = response.total_pages;
     this.latestMovies = response.results;
    });
   }
@@ -32,7 +33,6 @@ export class TabComponent implements OnInit {
   
   getPreviousPage(category: string) {
     this.currentPage--;
-    console.log(this.currentPage);
     this.moviesService. getUpcMovies(this.currentPage, 'movie',category).subscribe((response: MovieDto) => {
     
         this.latestMovies = [];

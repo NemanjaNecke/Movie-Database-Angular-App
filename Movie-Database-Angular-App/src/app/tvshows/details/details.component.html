@@ -1,0 +1,71 @@
+<ng-container *ngIf="show">
+    <app-item-show [shows]="[show]" [isBanner]="true"></app-item-show> 
+    <mat-tab-group dynamicHeight mat-align-tabs="center" animationDuration="500ms">
+     <mat-tab><ng-template mat-tab-label class="labels">Overview</ng-template> 
+         <div class="container" >
+             <div  class="column image-column"> 
+                 <mat-card>
+                    <img mat-card-image [src]="imgPath +show.poster_path" [alt]="show.name"> 
+                 </mat-card>
+             </div>
+             <div class="column">
+                <h2>{{show.name}}</h2>
+                 <h2>Overview</h2>
+                 <p>{{show.overview}}</p>
+                 <div class="stats">
+                     <p class="label">Release Date:</p>
+                     <p class="value">{{ show.release_date | date: 'dd.MM.yyyy' }}</p>
+                 </div>
+                 <div class="stats">
+                     <p class="label">Language:</p>
+                     <p class="value">{{ show.original_language | uppercase }}</p>
+                 </div>
+                 <div class="stats">
+                     <p class="label">Revenue:</p>
+                     <p class="value">{{ show.revenue | currency}}</p>
+                 </div>
+                 <div class="stats">
+                     <p class="label">Duration:</p>
+                     <p class="value">{{ show.runtime }} min</p>
+                 </div>
+                 <div class="stats">
+                     <p class="label">Status:</p>
+                     <p class="value">{{ show.status }}</p>
+                 </div>
+                 <div class="stats">
+                     <p class="label">Genres:</p>
+                     <p class="value"><span *ngFor="let genre of show.genres">
+                         {{genre.name}}
+                     </span></p>
+                 </div>
+             </div>
+         </div>
+     </mat-tab>
+     <mat-tab >
+         <ng-template mat-tab-label class="labels">Videos</ng-template>
+             <div class="video">
+                 <ng-container *ngFor="let video of showVideos">
+                     <mat-card class="videoItem">
+                         <mat-card-content>
+                         <app-video-show [key]="video.key" [site]="video.site">
+                     </app-video-show>
+                 </mat-card-content>
+             </mat-card>
+            
+              
+         </ng-container>
+         </div>
+     </mat-tab>
+     <mat-tab>
+         <ng-template mat-tab-label class="labels">Photos</ng-template> 
+         <app-image-galery [images]="showImages">
+ 
+         </app-image-galery>
+      </mat-tab>
+   </mat-tab-group>
+   <app-credits-show [actors]="showCredits">
+ 
+   </app-credits-show>
+ </ng-container>
+ 
+ 

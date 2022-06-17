@@ -8,23 +8,21 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  value: string = 'Search movies';
+  value: string = '';
   searchResults: Movie[] = [];
   currentPage = 1;
   totalPages = 0;
-  constructor(private moviesService: MoviesService, private _snackBar: MatSnackBar) { }
+  constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
   }
   searchMovies(search: string) {
     this.moviesService.getSearchMovies(search, 1).subscribe((searchResults) => {
       this.searchResults = searchResults.results;
+      this.totalPages = searchResults.total_pages;
     })
   }
 
-  openSnackBar() {
-    this._snackBar.open('There are no results for your search term');
-  }
 
   getNextpage(){
     this.currentPage++;

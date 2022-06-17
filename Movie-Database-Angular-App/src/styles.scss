@@ -39,3 +39,21 @@ $Movie-Database-Angular-App-theme: mat.define-light-theme((
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* label style */
+.mat-tab-label{
+  background: red;
+  color:  black;
+  min-width: 60px!important;
+}
+/* focus style */
+.mat-tab-group.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus, .mat-tab-group.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus, .mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus, .mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus{
+  background: red;
+}
+/* ink bar style */
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+   background: rgba(14, 14, 14, 0.3);
+    height: 35px;
+    border-radius: 100px;
+    margin-bottom: 5px;
+} 

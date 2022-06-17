@@ -1,0 +1,59 @@
+p, h2 {
+    color: red;
+}
+
+::ng-deep .mat-tab-labels {
+    background-color:  rgba(0,0,0,1);
+    .mat-tab-label {
+        color: black;
+        background-color: red;
+        font-size: 1rem;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 3%;
+    .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-right: 1%;
+        margin-left: 5%;
+        width: 50%;
+    }
+    .image-column {
+        height: 50%;
+        width: 50%;
+    }
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    p{
+        margin-right: 5%;
+        color: red;
+    }
+    .label {
+        font-size: large;
+        font-weight: bold;
+    }
+}
+
+.video {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 3%;
+}
+
+.videoItem{
+    width: fit-content;
+    margin-bottom: 2%;
+}

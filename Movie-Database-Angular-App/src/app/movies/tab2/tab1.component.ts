@@ -18,8 +18,7 @@ export class Tab1Component implements OnInit {
   ngOnInit(): void {
     this.moviesService.getUpcMovies(this.currentPage, 'movie','popular').subscribe((response: MovieDto) => {
       this.popular = response.results;
-
-      console.log(this.popular)
+      this.totalPages = response.total_pages;
    });
   }
   getNextpage(category:string){

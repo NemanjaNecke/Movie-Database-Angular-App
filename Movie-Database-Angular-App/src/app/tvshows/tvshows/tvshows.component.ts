@@ -26,9 +26,9 @@ export class TvshowsComponent implements OnInit {
   route: '/tv-shows/popular',
     },
    {
-     title: 'Upcoming Tv Shows',
+     title: 'Latest Tv Shows',
     content : ``,
-    route: '/tv-shows/upcoming',
+    route: '/tv-shows/latest',
   
    },
    {

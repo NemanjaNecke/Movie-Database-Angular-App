@@ -1,3 +1,4 @@
+import { Tvshow } from './../tvshows/tvshow';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Movie } from '../movies/movie';
@@ -25,6 +26,7 @@ export class ItemComponent implements OnInit {
 } 
   imgPath = 'http://image.tmdb.org/t/p/w1280/';
   @Input() items: Movie[] = [] ;
+  @Input() shows: Tvshow [] = [];
   currentIndex: number = 0;
 
   constructor() {}

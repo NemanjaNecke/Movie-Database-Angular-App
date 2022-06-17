@@ -1,0 +1,25 @@
+<mat-dialog-content>
+    <form class="form">
+        <mat-form-field class="search" appearance="standard">
+          <mat-label>Type to search</mat-label>
+          <input matInput placeholder="Search movies, shows or people" 
+         type="text"
+          [(ngModel)]="value" name="search"
+          #search="ngModel"
+          (keyup.enter)="searchAll(search.value)">
+          <button type="button" *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+         </mat-form-field>
+          
+      </form>
+      <mat-dialog-actions>
+        <button type="button" mat-button class="button"
+      (click)="searchAll(search.value)">
+      <mat-icon>search</mat-icon>
+      </button> 
+      </mat-dialog-actions>
+      
+</mat-dialog-content>
+<!--dialog za search i onda nova komponenat koja prikazuje sve rezultate ili moze cak da rutuje na rezultate za filmove i serije 
+posebno search stranice i posebno stranica nova za ljude ili movies-categories page da prikazuje rezultate he he-->

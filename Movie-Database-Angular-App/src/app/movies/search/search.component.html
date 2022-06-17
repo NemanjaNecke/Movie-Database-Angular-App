@@ -4,19 +4,24 @@
       <input matInput placeholder="Search movies" 
      type="text"
       [(ngModel)]="value" name="search"
-      (keypress)="searchMovies(value)">
+      #search="ngModel"
+      (keypress.enter)="searchMovies(value)">
       <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
         <mat-icon>close</mat-icon>
       </button>
      </mat-form-field>
-       <button mat-mini-fab class="button" aria-label="Example icon button with a delete icon" (click)="searchMovies(value)">
+       <button mat-mini-fab #buttsearch class="button" aria-label="Example icon button with a delete icon" (click)="searchMovies(value)">
     <mat-icon>search</mat-icon>
   </button> 
   </form>
 
-  <ng-container *ngIf="searchResults.length > 0; else noresults">
-      <app-search-results [results]="searchResults"></app-search-results>
-  </ng-container>
-  <ng-template #noresults>
-    <mat-toolbar>Sorry, no results</mat-toolbar>
-  </ng-template>
+  <ng-container *ngIf="searchResults.length>0">
+    <app-search-results [results]="searchResults" [currPage]="currentPage" [totPages]="totalPages"
+    (goTo)="getNextpage()"
+(previous)="getPreviousPage()"
+(currPageChange)="goToPage($event)"
+    ></app-search-results>
+</ng-container>
+<ng-container *ngIf="search.touched && searchResults.length==0">
+  <mat-toolbar>Sorry, no results</mat-toolbar>
+</ng-container>

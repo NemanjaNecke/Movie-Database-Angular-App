@@ -1,1 +1,10 @@
-<p>tvshowsgenres works!</p>
+<app-genreshows></app-genreshows>
+<app-genreshowsview
+[currPage]="currentPage"
+[totPages]="totalPages"
+[cards]="genres"
+(goTo)="getNextpage()"
+(previous)="getPreviousPage()"
+(currPageChange)="goToPage($event)">
+
+</app-genreshowsview>

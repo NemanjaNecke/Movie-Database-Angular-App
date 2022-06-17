@@ -23,7 +23,8 @@ export class CatalogueComponent {
   ngOnInit(): void {
   
    this.moviesService.getUpcMovies(this.currentPage, 'movie','top_rated').subscribe((response: MovieDto) => {
-     this.topRatedMovies = response.results
+     this.topRatedMovies = response.results;
+     this.totalPages = response.total_pages;
    });
 
   }
@@ -40,7 +41,6 @@ export class CatalogueComponent {
   
   getPreviousPage(category: string) {
     this.currentPage--;
-    console.log(this.currentPage);
     this.moviesService. getUpcMovies(this.currentPage, 'movie',category).subscribe((response: MovieDto) => {
 
       this.topRatedMovies = [];

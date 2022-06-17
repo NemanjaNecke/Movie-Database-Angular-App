@@ -1,8 +1,9 @@
+import { TabshowsComponent } from './../tabshows/tabshows.component';
 import { CatalogueshowsComponent } from './../../catalogueshows/catalogueshows.component';
 import { SearchgenresComponent } from './../searchgenres/searchgenres.component';
 import { TvshowsgenresComponent } from './../tvshowsgenres/tvshowsgenres.component';
 import { GenreshowsComponent } from './../genreshows/genreshows.component';
-import { TabshowsComponent } from './../tabshows/tabshows.component';
+
 import { Tab1ShowsComponent } from './../tab1shows/tab1shows.component';
 import { TvshowsComponent } from './tvshows.component';
 import { NgModule } from '@angular/core';
@@ -17,11 +18,11 @@ const routes: Routes = [
   {
     path: 'top-rated', component: Tab1ShowsComponent
   },
-  {
-    path: 'popular', component: TabshowsComponent
+  { 
+    path: 'latest', component: TabshowsComponent 
   }, 
   {
-    path: 'upcoming', component: CatalogueshowsComponent
+    path: 'popular', component: CatalogueshowsComponent
   },
   {
     path: 'genres', component: GenreshowsComponent
@@ -35,9 +36,6 @@ const routes: Routes = [
     path: 'search',
     component: SearchgenresComponent
   },
-  {
-    path: 'tv-shows', component: TvshowsComponent
-  }
 ]
   }
 ];

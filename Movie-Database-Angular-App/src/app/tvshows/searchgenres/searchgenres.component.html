@@ -1,1 +1,26 @@
-<p>searchgenres works!</p>
+<form class="form">
+    <mat-form-field class="search" appearance="standard">
+      <mat-label>Type to search</mat-label>
+      <input matInput placeholder="Search movies" 
+     type="text"
+      [(ngModel)]="value" name="search"
+      #search="ngModel"
+      (keyup.enter)="searchMovies(search.value)">
+      <button type="button" *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+     </mat-form-field>
+       <button type="button" mat-mini-fab class="button" aria-label="Example icon button with a delete icon" (click)="searchMovies(search.value)">
+    <mat-icon>search</mat-icon>
+  </button> 
+  </form>
+
+  <ng-container *ngIf="searchResults.length>0">
+      <app-search-view [results]="searchResults" [currPage]="currentPage" [totPages]="totalPages"
+      (goTo)="getNextpage()"
+(previous)="getPreviousPage()"
+(currPageChange)="goToPage($event)"></app-search-view>
+  </ng-container>
+  <ng-container *ngIf="searchResults.length==0 && search.touched ">
+    <mat-toolbar>Sorry, no results</mat-toolbar>
+  </ng-container>

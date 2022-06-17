@@ -19,12 +19,13 @@
   right: 0px;
  .mat-card-title {
    text-align: left;
+   color: red;
  }
  a {
-  color: white;
+  color: red;
   text-decoration:wavy;
   &:hover{
-    color: red;
+    color: white;
   }
  }
 }
@@ -39,8 +40,8 @@
 
   div {
     position: absolute;
-    background-color: rgba(20, 20, 20, 0.3);
-    color: white;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: black;
     top: 45%;
     width: 53%;
     text-align: left;

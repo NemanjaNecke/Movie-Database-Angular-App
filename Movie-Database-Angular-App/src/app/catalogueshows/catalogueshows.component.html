@@ -1,1 +1,10 @@
-<p>catalogueshows works!</p>
+<app-showsview
+[currPage]="currentPage"
+[totPages]="totalPages"
+[cards]="latestShows"
+(goTo)="getNextpage($event)"
+(previous)="getPreviousPage($event)"
+(currPageChange)="goToPage($event)">
+  
+</app-showsview>
+

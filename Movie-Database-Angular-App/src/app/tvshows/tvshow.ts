@@ -1,4 +1,4 @@
-import { Genre } from "../movies/movie";
+
 
 export interface Tvshow {
     adult: boolean;
@@ -18,7 +18,12 @@ export interface Tvshow {
   revenue: number;
   runtime: number;
   status: string;
-  genres: Genre[];
+  genres: TvGenre[];
+}
+
+export interface ShowsVideo {
+  site: string;
+  key: string;
 }
 
 export interface TvShowDto {
@@ -26,4 +31,33 @@ export interface TvShowDto {
     results: Tvshow[],
     total_results: number,
     total_pages: number;
+}
+
+export interface ShowsVideoDto {
+  id: number;
+  results: ShowsVideo[];
+}
+
+
+export interface TVShowImages {
+  id: number;
+  backdrops: {
+    file_path: string;
+  }[];
+}
+
+export interface TVShowCredits {
+  cast: {
+    name: string;
+    profile_path: string;
+  }[];
+}
+
+export interface TvGenreDto {
+  genres: TvGenre[];
+}
+
+export interface TvGenre {
+  name: string;
+  id: number;
 }

@@ -1,0 +1,6 @@
+<app-multisearchview  [searchResults]="searchResults" [currPage]="currentPage" [totPages]="totalPages"
+(goTo)="getNextpage()"
+(previous)="getPreviousPage()"
+(currPageChange)="goToPage($event)">
+
+</app-multisearchview>
